@@ -23,18 +23,6 @@ export class RestauranteService {
     >,
   ) {}
 
-  async getRestauranteById(id: number): Promise<ResponseRestauranteDto> {
-    let restaurante = new ResponseRestauranteDto();
-    restaurante = Object.assign(await this.restauranteRepository.findOne(id));
-
-    restaurante.horario = formatar_horario(
-      await this.horarioFuncionamentoRepository.find({
-        id_restaurante: id,
-      }),
-    );
-    return restaurante;
-  }
-
   async insertRestaurante(
     insertRestauranteDto: InsertRestauranteDto,
   ): Promise<Restaurante> {
@@ -58,6 +46,18 @@ export class RestauranteService {
     return restaurante;
   }
 
+  async getRestauranteById(id: number): Promise<ResponseRestauranteDto> {
+    let restaurante = new ResponseRestauranteDto();
+    restaurante = Object.assign(await this.restauranteRepository.findOne(id));
+
+    restaurante.horario = formatar_horario(
+      await this.horarioFuncionamentoRepository.find({
+        id_restaurante: id,
+      }),
+    );
+    return restaurante;
+  }
+
   async getRestaurante(
     getRestauranteDto: GetRestauranteDto,
   ): Promise<ResponseRestauranteDto[]> {
@@ -71,7 +71,7 @@ export class RestauranteService {
 
     if (url_foto != null && url_foto != '') restaurante.url_foto = url_foto;
 
-    return Promise.all(
+    return await Promise.all(
       (await this.restauranteRepository.find(restaurante)).map(async e => {
         let restaurante = new ResponseRestauranteDto();
         restaurante = Object.assign(e);

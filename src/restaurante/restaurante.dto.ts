@@ -12,7 +12,7 @@ import {
   ValidarHorario,
   ValidarDia,
   Match,
-} from './pipes/validateRestaurante.pipe';
+} from '../pipes/customValidate.pipe';
 
 import { Type } from 'class-transformer';
 
@@ -36,7 +36,7 @@ class HorarioFuncionamento {
 
 export class InsertRestauranteDto {
   @IsNotEmpty()
-  @IsByteLength(0, 10)
+  @IsByteLength(0, 50)
   nome: string;
 
   @IsNotEmpty()
@@ -54,7 +54,7 @@ export class InsertRestauranteDto {
 
 export class GetRestauranteDto {
   @IsOptional()
-  @IsByteLength(0, 10)
+  @IsByteLength(0, 50)
   nome: string;
 
   @IsOptional()
@@ -68,7 +68,7 @@ export class GetRestauranteDto {
 
 export class PatchRestauranteDto {
   @IsOptional()
-  @IsByteLength(0, 10)
+  @IsByteLength(0, 50)
   nome: string;
 
   @IsOptional()
@@ -98,7 +98,7 @@ export class ResponseRestauranteDto {
   id_restaurante: number;
 
   @IsNotEmpty()
-  @IsByteLength(0, 10)
+  @IsByteLength(0, 50)
   nome: string;
 
   @IsNotEmpty()

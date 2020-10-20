@@ -24,14 +24,14 @@ export class RestauranteController {
   constructor(private restauranteService: RestauranteService) {}
 
   @Post()
-  async insertRestaurante(
+  insertRestaurante(
     @Body(ValidationPipe) insertRestauranteDto: InsertRestauranteDto,
   ): Promise<Restaurante> {
     return this.restauranteService.insertRestaurante(insertRestauranteDto);
   }
 
   @Get('/:id')
-  getRequisicaoByID(
+  getRestauranteByID(
     @Param('id', ParseIntPipe) id: number,
   ): Promise<ResponseRestauranteDto> {
     return this.restauranteService.getRestauranteById(id);
