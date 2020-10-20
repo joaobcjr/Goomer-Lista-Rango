@@ -24,11 +24,14 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-## Description
+## Descrição
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Projeto criado para o Goomer Challenge - Developer Backend
 
-## Installation
+Framework utilizado: NestJS
+Banco de Dados Utilizado: PostgreSQL
+
+## Instalação
 
 ```bash
 $ npm install
@@ -41,7 +44,7 @@ $ npm install
 $ npm run start
 
 # production mode ( Já está com as váriáveis definidas para um banco criado para teste na AWS )
-$ npm run start:prod
+$ npm run start
 ```
 
 ## Support
