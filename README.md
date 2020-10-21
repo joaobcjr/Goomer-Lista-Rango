@@ -28,8 +28,11 @@
 
 Projeto criado para o Goomer Challenge - Developer Backend
 
-Framework utilizado: NestJS
+Framework utilizado: NestJS <br/>
 Banco de Dados Utilizado: PostgreSQL
+
+O maior desafio encontrado durante o desenvolvimento do projeto foi na hora da definição do padrão da arquitetura do projeto, definir a maneira mais rápida e eficiente de desenvolvê-lo.
+Outro ponto de atenção foi na hora de modelar o banco de dados para armazenar os dias de funcionamento dos restaurantes e os dias das promoções sem que fosse apenas um campo texto, podendo assim criarmos sistemas que trabalham com esses dados de maneira eficiente.
 
 ## Instalação
 
@@ -37,26 +40,16 @@ Banco de Dados Utilizado: PostgreSQL
 $ npm install
 ```
 
-## Running the app
+## Iniciar o Projeto
 
 ```bash
-# development ( É necessário o PostgreSQL instalado localhost)
+# O .env está configurado para um RDS PostgreSQL, se necessário, alterar as variáveis no arquivo.
 $ npm run start
 
-# production mode ( Já está com as váriáveis definidas para um banco criado para teste na AWS )
-$ npm run start
 ```
 
-## Support
+## Collection Postman
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Abaixo segue o url para uma collection do Postman que contém todas as requisições necessárias para testar a aplicação.<br/>
+Abra o Postman -> Canto superior direito -> Import -> Link -> Copie o Link abaixo.
+https://www.getpostman.com/collections/1333f30c470fa51fb1ab
