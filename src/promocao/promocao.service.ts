@@ -18,6 +18,16 @@ export class PromocaoService {
     @InjectRepository(Produto)
     private readonly produtoRepository: Repository<Produto>;
 
+    async getPromocaoById(id: number): Promise<ResponsePromocaoDto> {
+      const promocao = await this.promocaoRepository.findOne(id)
+      let promocaoResponse = new ResponsePromocaoDto();
+      promocaoResponse = Object.assign(await this.promocaoRepository.findOne(id));
+      promocaoResponse.dia_promocao = formatar_promocao(await this.diapromocaoRepository.find({id_promocao: id}));
+      promocaoResponse.status = formatar_status(promocao.status);
+      return promocaoResponse;
+    }
+
+
     async insertPromocao(insertPromocaoDto: InsertPromocaoDto): Promise<ResponsePromocaoDto> {
       const { descricao, id_produto, dia_promocao, preco } = insertPromocaoDto;
       const promocao = new Promocao();
@@ -31,25 +41,16 @@ export class PromocaoService {
       promocao.preco = preco;
       await promocao.save();
 
-      Promise.all(dia_promocao.map(async e=>{
+      await Promise.all(dia_promocao.map(async e=>{
           const diapromocao = new DiaPromocao();
           diapromocao.id_promocao = promocao.id_promocao;
           diapromocao.dia_semana = e.dia_semana;
           diapromocao.horario_inicio = e.dia_semana;
           diapromocao.horario_fim = e.horario_fim;
-          diapromocao.save();
+          await diapromocao.save();
       }));
 
       return this.getPromocaoById(promocao.id_promocao);
-    }
-   
-    async getPromocaoById(id: number): Promise<ResponsePromocaoDto> {
-      const promocao = await this.promocaoRepository.findOne(id)
-      let promocaoResponse = new ResponsePromocaoDto();
-      promocaoResponse = Object.assign(await this.promocaoRepository.findOne(id));
-      promocaoResponse.dia_promocao = formatar_promocao(await this.diapromocaoRepository.find({id_promocao: id}));
-      promocaoResponse.status = formatar_status(promocao.status);
-      return promocaoResponse;
     }
 
     async getPromocao(getPromocaoDto: GetPromocaoDto): Promise<ResponsePromocaoDto[]> {

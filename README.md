@@ -44,7 +44,7 @@ $ npm install
 
 ```bash
 # O .env está configurado para um RDS PostgreSQL, se necessário, alterar as variáveis no arquivo.
-$ npm run start
+$ npm start
 
 ```
 
