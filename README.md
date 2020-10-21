@@ -34,6 +34,14 @@ Banco de Dados Utilizado: PostgreSQL
 O maior desafio encontrado durante o desenvolvimento do projeto foi na hora da definição do padrão da arquitetura do projeto, definir a maneira mais rápida e eficiente de desenvolvê-lo.
 Outro ponto de atenção foi na hora de modelar o banco de dados para armazenar os dias de funcionamento dos restaurantes e os dias das promoções sem que fosse apenas um campo texto, podendo assim criarmos sistemas que trabalham com esses dados de maneira eficiente.
 
+## Modelagem do Banco de Dados
+
+Segue a imagem da modelagem do banco.
+
+<p align="left">
+  <img src="https://uploaddeimagens.com.br/images/002/928/451/original/Capturar.JPG?1603244012"/>
+</p>
+
 ## Instalação
 
 ```bash
