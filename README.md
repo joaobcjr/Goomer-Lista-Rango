@@ -59,5 +59,5 @@ $ npm start
 ## Collection Postman
 
 Abaixo segue o url para uma collection do Postman que contém todas as requisições necessárias para testar a aplicação.<br/>
-Abra o Postman -> Canto superior direito -> Import -> Link -> Copie o Link abaixo.
+Abra o Postman -> Canto superior esquerdo -> Import -> Link -> Copie o Link abaixo.
 https://www.getpostman.com/collections/1333f30c470fa51fb1ab
